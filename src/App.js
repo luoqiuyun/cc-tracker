@@ -58,17 +58,8 @@ const App = () => {
         return (
           <Coin
             key={coin.id}
+            coin={coin}
             idx={(page - 1) * (pageSize === "All" ? 0 : pageSize) + index + 1}
-            image={coin.image}
-            name={coin.name}
-            symbol={coin.symbol}
-            price={coin.current_price}
-            volume={coin.total_volume}
-            priceChange={coin.price_change_percentage_24h}
-            marketcap={coin.market_cap}
-            coinsRank={
-              "https://www.coingecko.com/coins/" + coin.market_cap_rank + "/"
-            }
           />
         );
       })}

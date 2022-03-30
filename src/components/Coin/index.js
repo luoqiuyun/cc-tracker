@@ -1,15 +1,17 @@
-const Coin = (props) => {
+const Coin = ({ idx, coin }) => {
   const {
-    idx,
     image,
     name,
     symbol,
-    price,
-    volume,
-    priceChange,
-    marketcap,
-    coinsRank
-  } = props;
+    current_price: price,
+    total_volume: volume,
+    price_change_percentage_24h: priceChange,
+    market_cap: marketcap,
+    market_cap_rank
+  } = coin;
+
+  const coinsRank = "https://www.coingecko.com/coins/" + market_cap_rank + "/";
+
   return (
     <div className="coin-container">
       <div className="coin-row">
