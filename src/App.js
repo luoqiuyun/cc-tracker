@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 import Coin from "./components/Coin";
@@ -10,11 +10,11 @@ import SelectPageSize from "./components/SelectPageSize";
 import "./styles.css";
 
 const App = () => {
-  const [tick, setTick] = React.useState(0);
-  const [page, setPage] = React.useState(1);
-  const [coins, setCoins] = React.useState([]);
-  const [search, setSearch] = React.useState("");
-  const [pageSize, setPageSize] = React.useState(10);
+  const [tick, setTick] = useState(0);
+  const [page, setPage] = useState(1);
+  const [coins, setCoins] = useState([]);
+  const [search, setSearch] = useState("");
+  const [pageSize, setPageSize] = useState(10);
 
   const pageSizes = ["10", "50", "100", "All"];
   const columnName = [
@@ -27,7 +27,7 @@ const App = () => {
     "Last 7 Days"
   ];
 
-  React.useEffect(() => {
+  useEffect(() => {
     let url = "https://api.coingecko.com/api/v3/coins/markets";
     url +=
       "?vs_currency=usd&order=market_cap_desc&sparkline=true&price_change_percentage=7d&";
